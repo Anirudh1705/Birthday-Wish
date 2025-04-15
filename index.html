@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Celebrate a special birthday with joy, laughter, and surprises!">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3, #ffd1dc), url('./balloons.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #fff;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-top: 1rem;
+            margin-bottom: 0.5em;
+            animation: fadeIn 2s ease-in-out;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        p {
+            font-size: 1.5em;
+            margin-bottom: 1.5em;
+            animation: slideIn 2s ease-in-out;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #ff6f61, #ff3b2e);
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: bounce 2s infinite;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .balloons {
+            font-size: 4rem;
+            margin-top: -2rem;
+            animation: float 2s infinite;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+        }
+
+        .images-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 1.5rem;
+            justify-content: center;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .images-container img {
+            width: 100px;
+            height: auto;
+            border-radius: 10px;
+            animation: zoomIn 2s ease-in-out;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #fff, #ffe6e6);
+            border: 2px solid #ff6f61;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .popup h2 {
+            margin: 0;
+            font-size: 1.8em;
+            color: #ff6f61;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .popup button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #ff6f61, #ff3b2e);
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .popup button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 999;
+        }
+
+        .cake-container {
+            position: absolute;
+            bottom: 20px;
+            display: flex;
+            justify-content: center;
+            animation: fadeIn 3s ease-in-out;
+            width: 100%;
+        }
+
+        .cake-container img {
+            width: 150px;
+            height: auto;
+            animation: float 3s infinite;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes zoomIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="balloons" aria-label="Balloons and celebration emojis">🎈🎉🎂🎁</div>
+    <h1>Happy Birthday, Aradhay!</h1>
+    <p>Wishing you joy, laughter, and all the cake you can eat!</p>
+    <button onclick="showPopup()" aria-label="Click for a birthday surprise">Click for a Surprise</button>
+
+    <div class="cake-container">
+        <img src="./cake.png" alt="Cake">
+    </div>
+
+    <div class="overlay" id="overlay" onclick="closePopup()"></div>
+    <div class="popup" id="popup">
+        <h2>Hope your day is as amazing as you are! Have fun!</h2>
+        <button onclick="closePopup()">Close</button>
+    </div>
+
+<script>
+    function showPopup() {
+        document.getElementById('popup').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+    }
+
+    function closePopup() {
+        document.getElementById('popup').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
