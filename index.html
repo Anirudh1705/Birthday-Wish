@@ -9,7 +9,7 @@
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #ff758c, #ff7eb3, #ffd1dc), url('./balloons.png');
+            background: linear-gradient(135deg, #ff758c, #ff7eb3, #ffd1dc), url('balloons.png');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -175,14 +175,17 @@
     </style>
 </head>
 <body>
-
+    <audio class="song" loop autoplay controls style="display:none;">
+        <source src="./hpbd.mp3" type="audio/mpeg">
+        Your browser doesn't support audio playback.
+    </audio>
     <div class="balloons" aria-label="Balloons and celebration emojis">🎈🎉🎂🎁</div>
-    <h1>Happy Birthday, Papa!</h1>
+    <h1>Happy Birthday, Moti!</h1>
     <p>Wishing you joy, laughter, and all the cake you can eat!</p>
     <button onclick="showPopup()" aria-label="Click for a birthday surprise">Click for a Surprise</button>
 
     <div class="cake-container">
-        <img src="Cake.png" alt="Cake">
+        <img src="cake.png" alt="Cake">
     </div>
 
     <div class="overlay" id="overlay" onclick="closePopup()"></div>
